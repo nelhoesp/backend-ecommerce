@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const sequelize = require('./config/database');
+const authRoutes = require('./routes/auth.routes');
+
 require('dotenv').config();
 
 const app = express();
@@ -15,6 +17,8 @@ app.get('/', (req, res) => {
         message: 'API is running'
     });
 });
+
+app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 3000;
 
