@@ -5,6 +5,8 @@ const sequelize = require('./config/database');
 const authRoutes = require('./routes/auth.routes');
 const productRoutes = require('./routes/product.route');
 const cartRoutes = require('./routes/cart.routes');
+const paymentRoutes = require('./routes/payment.routes');
+const purchaseRoutes = require('./routes/purchase.routes');
 
 require('dotenv').config();
 
@@ -24,6 +26,8 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/my-purchases', purchaseRoutes);
 
 const PORT = process.env.PORT || 3000;
 
